@@ -1,12 +1,14 @@
-document.getElementById("businessForm").addEventListener("submit", async function(e) {
+document.getElementById("businessForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
+    // Collect form values
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const whatsapp = document.getElementById("whatsapp").value;
     const businessType = document.getElementById("businessType").value;
     const message = document.getElementById("message").value;
 
+    // Build full message
     const fullMessage = `
 🌱 FARM RESEARCH REQUEST
 👤 Name: ${name}
@@ -16,44 +18,33 @@ document.getElementById("businessForm").addEventListener("submit", async functio
 📝 Request: ${message}
 `;
 
-    // =========================
-    // YOUR TELEGRAM BOT DETAILS
-    // =========================
-    const botToken = "YOUR_BOT_TOKEN";
-    const chatId = "YOUR_CHAT_ID";
-
-    const telegramURL = `https://api.telegram.org/bot${botToken}/sendMessage`;
-
     try {
-        // SEND TO TELEGRAM
-        await fetch(telegramURL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                chat_id: chatId,
-                text: fullMessage
-            })
-        });
-
-        // OPEN WHATSAPP
+        // =========================
+        // WHATSAPP SEND
+        // Replace with your WhatsApp number
+        // Example: 2348012345678
+        // =========================
         window.open(
-            `https://wa.me/YOUR_WHATSAPP_NUMBER?text=${encodeURIComponent(fullMessage)}`,
+            `https://wa.me/2348060156557text=${encodeURIComponent(fullMessage)}`,
             "_blank"
         );
 
-        // OPEN EMAIL
+        // =========================
+        // EMAIL SEND
+        // Replace with your email
+        // =========================
         window.location.href =
-            `mailto:YOUR_EMAIL@gmail.com?subject=Farm Research Business Request&body=${encodeURIComponent(fullMessage)}`;
+            `mailto:aletileajokebola@gmail.com?subject=Farm Research Business Request&body=${encodeURIComponent(fullMessage)}`;
 
+        // Success message
         document.getElementById("status").innerText =
-            "✅ Request sent successfully!";
+            "✅ Request opened in WhatsApp and Email successfully!";
 
+        // Reset form
         document.getElementById("businessForm").reset();
 
     } catch (error) {
         document.getElementById("status").innerText =
-            "❌ Failed to send request.";
+            "❌ Failed to open WhatsApp or Email.";
     }
 });
