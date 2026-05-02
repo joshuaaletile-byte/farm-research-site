@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Research Hub</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="hud-container">
+    <div class="hud-border"></div>
+
+    <h1>🌱 FARM RESEARCH HUB</h1>
+    <p>Advanced Agricultural Business Request Portal</p>
+
+    <form id="businessForm">
+
+      <input type="text" id="name" placeholder="Full Name" required>
+
+      <input type="email" id="email" placeholder="Email Address" required>
+
+      <input type="text" id="whatsapp" placeholder="WhatsApp Number" required>
+
+      <select id="businessType" required>
+        <option value="">Select Business Type</option>
+        <option>Crop Research</option>
+        <option>Livestock Research</option>
+        <option>Farm Investment</option>
+        <option>Partnership</option>
+      </select>
+
+      <textarea id="message" placeholder="Describe your business request..." required></textarea>
+
+      <button type="submit">SEND REQUEST</button>
+
+    </form>
+
+    <div id="status"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
